@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nombre": "Admin",
+      "apellido": "1",
+      "celular": "3123456789",
+      "email": "admin@framework.com",
+      "contraseña": "Admin"
+    },
+    {
+      "id": "2",
+      "nombre": "User",
+      "apellido": "1",
+      "celular": "3123456789",
+      "email": "user@mail.com",
+      "contraseña": "User"
+    }      
+  ]
+}
