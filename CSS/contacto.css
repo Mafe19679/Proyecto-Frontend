@@ -1,0 +1,76 @@
+body {
+    overflow-x: hidden;
+}
+
+.form-contacto .form {
+    background: rgb(13 171 162 / 25%);
+    display: flex;
+    align-items: center;
+
+}
+
+.form-contacto .btn {
+    background: #0DABA2;
+    color: white;
+    width: 170px;
+    border: 2px solid #0DABA2;
+}
+
+.form-contacto .button {
+    display: flex;
+    justify-content: center;
+}
+
+.inputs .form-control {
+    border: none;
+    border-bottom: 2px solid #0DABA2;
+    background: rgb(255 255 255 / 55%);
+}
+
+.inputs input {
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 1px rgb(13 171 162 / 50%);
+}
+.inputs textarea {
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 1px rgb(13 171 162 / 50%);
+}
+
+.form-contacto .form-control:focus{
+    background: rgb(255 255 255 / 55%);
+    box-shadow: 0 1px 4px 1px rgb(13 171 162 / 50%);
+    border-bottom: 2px solid #0DABA2;
+}
+
+.form-contacto .btn:hover {
+    border: 2px solid #0c8f88;
+    color: white;
+    width: 170px;
+    box-shadow: 0 2px 12px 2px #83d4d0;
+    background-color: #0c8f88;
+}
+
+.form-contacto h2{
+    color: #0c8f88;
+    font-size: 3vh;
+}
+.img{
+    position: relative;
+}
+
+@media (max-width:767px ) {
+    .form {
+        position: absolute;
+        height: 600px;
+    }
+    .inputs .form-control {
+        background: rgba(255, 255, 255);
+    }
+    .form-contacto .form-control:focus{
+        background: rgb(255, 255, 255);
+    }
+    .form-contacto h2{
+        color: #0DABA2;
+        text-shadow: 1px 1px 2px black;
+    }
+}  
