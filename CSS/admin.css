@@ -1,0 +1,70 @@
+nav .nav-tabs .nav-link {
+    width: 200px;
+    height: 80px;
+    margin: 0 20px;
+}
+
+#nav-usuarios-tab {
+    background-color: #006FAD;
+    color: white
+}
+
+#nav-servicios-tab {
+    background-color: #0DABA2;
+    color: white
+}
+
+#nav-contactenos-tab {
+    background-color: #B63399;
+    color: white
+}
+
+.fa-pen {
+    color: #24BA33;
+    margin: 0 5px;
+}
+
+.fa-trash {
+    color: #EC1111;
+    margin: 0 5px;
+}
+
+.fa-envelope {
+    color: #00165e;
+}
+
+table {
+    border: 2px solid #697174;
+
+}
+
+.tab-pane table thead {
+    background-color: #c4d3db;
+
+}
+
+.tab-pane table th {
+    text-align: center;
+    padding: 6px;
+}
+
+.tab-pane table td {
+    padding: 6px;
+}
+
+table tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+table tbody tr:nth-child(even) {
+    background: #0d93ab42;
+}
+
+@media (max-width:767px) {
+    nav .nav-tabs .nav-link {
+        width: 30%;
+        height: 60px;
+        margin: 0 2px;
+        font-size: 3vw;
+    }
+}
