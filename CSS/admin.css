@@ -68,3 +68,13 @@ table tbody tr:nth-child(even) {
         font-size: 3vw;
     }
 }
+
+.modal-footer .btn {
+    background: #006FAD;
+    color: white;
+}
+
+.modal-footer .btn:hover {
+    background: #006FAD;
+    color: white;
+}
