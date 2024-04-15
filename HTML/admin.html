@@ -12,6 +12,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/12c6e72ad4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css">
+
 
     <title>Administrador</title>
 </head>
@@ -73,8 +75,8 @@
                                 <td>Mafe@gmail.com</td>
                                 <td>****</td>
                                 <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i
-                                        class="fa-solid fa-trash"></i></td>
+                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i class="fa-solid fa-trash"
+                                        onclick="mostrarConfirmacion()"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -84,8 +86,8 @@
                                 <td>Mafe@gmail.com</td>
                                 <td>****</td>
                                 <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i
-                                        class="fa-solid fa-trash"></i></td>
+                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i class="fa-solid fa-trash"
+                                        onclick="mostrarConfirmacion()"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
@@ -95,8 +97,8 @@
                                 <td>Mafe@gmail.com</td>
                                 <td>****</td>
                                 <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i
-                                        class="fa-solid fa-trash"></i></td>
+                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i class="fa-solid fa-trash"
+                                        onclick="mostrarConfirmacion()"></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -127,7 +129,7 @@
                                 <td>Descripción producto 1</td>
                                 <td class="text-center"><i class="fa-solid fa-pen"
                                         onclick="alterbuttons('Actualizar','Servicio')"></i> <i
-                                        class="fa-solid fa-trash"></i></td>
+                                        class="fa-solid fa-trash" onclick="mostrarConfirmacion()"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -135,7 +137,7 @@
                                 <td>Descripción producto 2</td>
                                 <td class="text-center"><i class="fa-solid fa-pen"
                                         onclick="alterbuttons('Actualizar','Servicio')"></i> <i
-                                        class="fa-solid fa-trash"></i></td>
+                                        class="fa-solid fa-trash" onclick="mostrarConfirmacion()"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
@@ -143,7 +145,7 @@
                                 <td>Descripción producto 3</td>
                                 <td class="text-center"><i class="fa-solid fa-pen"
                                         onclick="alterbuttons('Actualizar','Servicio')"></i> <i
-                                        class="fa-solid fa-trash"></i></td>
+                                        class="fa-solid fa-trash" onclick="mostrarConfirmacion()"></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -172,10 +174,11 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Mafe Diaz</td>
-                                <td>Mafe@gmail.com</td>
+                                <td id="correo">Mafe@gmail.com</td>
                                 <td>3123456789</td>
                                 <td>Me gustaria...</td>
-                                <td class="text-center"><i class="fa-solid fa-envelope"></i></td>
+                                <td class="text-center"><i class="fa-solid fa-envelope" onclick="enviarCorreo()"></i>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -183,7 +186,8 @@
                                 <td>Mafe@gmail.com</td>
                                 <td>3123456789</td>
                                 <td>Me gustaria...</td>
-                                <td class="text-center"><i class="fa-solid fa-envelope"></i></td>
+                                <td class="text-center"><i class="fa-solid fa-envelope" onclick="enviarCorreo()"></i>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
@@ -191,7 +195,8 @@
                                 <td>Mafe@gmail.com</td>
                                 <td>3123456789</td>
                                 <td>Me gustaria...</td>
-                                <td class="text-center"><i class="fa-solid fa-envelope"></i></td>
+                                <td class="text-center"><i class="fa-solid fa-envelope" onclick="enviarCorreo()"></i>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -210,31 +215,32 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control">
+                        <form class="form-nuevo">
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInputNombre" placeholder="">
+                                <label for="floatingInput">Nombre</label>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Apellido</label>
-                                <input type="text" class="form-control">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInputApellido" placeholder="">
+                                <label for="floatingInput">Apellido</label>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Celular</label>
-                                <input type="tel" class="form-control">
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="floatingInputCelular" placeholder="">
+                                <label for="floatingInput">Celular</label>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Correo</label>
-                                <input type="email" class="form-control">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInputCorreo" placeholder="">
+                                <label for="floatingInput">Correo</label>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Contraseña</label>
-                                <input type="password" class="form-control">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingInputContraseña" placeholder="">
+                                <label for="floatingInput">Contraseña</label>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="botonUsuario" class="btn btn-success">Crear</button>
+                        <button type="button" id="botonUsuario" class="btn">Crear</button>
                     </div>
                 </div>
             </div>
@@ -249,19 +255,21 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control">
+                        <form class="form-nuevo">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInputNombreServ" placeholder="">
+                                <label for="floatingInput">Nombre</label>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Descripción</label>
-                                <textarea type="text" class="form-control" style="max-height: 250px;"></textarea>
+                            <div class="form-floating mb-3">
+                                <textarea type="text" class="form-control" id="floatingInputDescripcion" placeholder=""
+                                    style="max-height: 250px; height: 150px;"></textarea>
+                                <label for="floatingInput">Descripción</label>
                             </div>
+
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="botonServicio">Crear</button>
+                        <button type="button" class="btn" id="botonServicio">Crear</button>
                     </div>
                 </div>
             </div>
@@ -280,5 +288,6 @@
 </body>
 <script src="../JS/admin.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
 
 </html>
