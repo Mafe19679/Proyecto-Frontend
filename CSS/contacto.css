@@ -1,5 +1,7 @@
 body {
     overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
 }
 
 .form-contacto .form {
