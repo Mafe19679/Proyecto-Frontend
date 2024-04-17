@@ -1,32 +1,44 @@
-.navbar-nav .button{
-background-color: #006FAD;
-width: 120px;
-height: 50px;
-color: white;
-align-items: center;
-justify-content: center;
-display: flex;
-border-radius: 8px;
-font-weight: 500;
+body{
+    overflow-x: hidden;
 }
-.navbar-nav .button:hover{
+.navbar-nav .button {
+    background-color: #006FAD;
+    width: 120px;
+    height: 50px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.navbar-nav .button:hover {
     color: white;
 }
-.navbar-nav .registro{
+
+.navbar-nav .registro {
     background-color: #006FAD;
-    }
-    
-.navbar-nav .conectar{
+}
+
+.navbar-nav .conectar {
     background-color: #B63399;
-    }
+}
 
-    .navbar-nav .normal{
-        color: #0DABA2;
-        font-weight: bold;
-        }
+.navbar-nav .normal {
+    color: #0DABA2;
+    font-weight: bold;
+}
 
-    div    .collapse .navbar-nav{
-            gap: 10px 50px;
+div .collapse .navbar-nav {
+    gap: 10px 50px;
     justify-content: end;
     padding: 0 50px;
-        }
+}
+.footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    
+  }
+ 
