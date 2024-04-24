@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    flex-direction: row;
+    text-align: center;
+}
+
+.registration-form {
+    width: 45%; /* Ancho del formulario de registro */
+    margin-left: 20px; /* Margen izquierdo */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-row input {
+    width: calc(50% - 10px); /* Ancho de los campos de entrada */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.btn-registrar {
+    background-color: #0070AE;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.fade-image {
+    width: 100%;
+    position: relative;
+    left: auto;
+}
+
+.fade-image img {
+    width: 100%;
+    height: auto;
+}
+
+.fade-image::after {
+    content: "";
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 2;
+}
+
