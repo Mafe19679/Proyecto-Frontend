@@ -1,36 +1,42 @@
 {
   "users": [
     {
-      "id": "1",
-      "nombre": "Admin",
-      "apellido": "1",
-      "celular": "3123456789",
-      "email": "admin@framework.com",
-      "contraseña": "Admin"
-    },
-    {
-      "id": "2",
-      "nombre": "User",
-      "apellido": "1",
-      "celular": "3123456789",
-      "email": "user@mail.com",
-      "contraseña": "User"
+      "id": "e6e3",
+      "nombre": "Mafe",
+      "apellido": "Diaz",
+      "celular": "3152689980",
+      "email": "Mafed@gmail.com",
+      "contraseña": "1234567890"
     }
   ],
   "servicios": [
     {
-      "id": "1",
-      "nombre": "Producto 1",
-      "descripción": "Prestamos ..."
+      "nombre": "Analisis de datos",
+      "descripcion": "Brindamos .....",
+      "destacado": "No",
+      "id": "b884"
+    },
+    {
+      "nombre": "IA",
+      "descripcion": "Pendiente.....",
+      "destacado": "No",
+      "id": "c887"
     }
   ],
-  "contacto": [
+  "contactenos": [
     {
       "id": "1",
       "nombre": "User",
       "correo": "persona@gmail.com",
       "celular": "3123456789",
       "mensaje": "Me gustaria..."
+    },
+    {
+      "id": "c428",
+      "nombre": "mafer",
+      "correo": "mafe122@gmail.com",
+      "celular": "3392984",
+      "mensaje": ".."
     }
   ]
 }

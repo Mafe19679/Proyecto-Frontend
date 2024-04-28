@@ -15,31 +15,32 @@
     <script src="https://kit.fontawesome.com/12c6e72ad4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css">
     <script src="https://kit.fontawesome.com/12c6e72ad4.js" crossorigin="anonymous"></script>
-
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Administrador</title>
 </head>
 
-<body>
+<body id="Admin">
 
     <!-- Inicio Menu -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="../IMG/LogoCompleto.png" alt="" width="200px"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav justify-content-end w-100 align-items-center">
-                
-              <a class="nav-link active normal" aria-current="page" href="../HTML/home.html">INICIO</a>
-              <a class="nav-link normal" href="../HTML/servicios.html">SERVICIOS</a>
-              <a class="nav-link normal" href="../HTML/contacto.html">CONTÁCTO</a>
-              <a class="nav-link button registro" href="../HTML/inicio_sesion.html">REGISTRARSE</a>
-              <a class="nav-link button conectar" href="../HTML/inicio_sesion.html">CONECTARSE</a>
+            <a class="navbar-brand" href="#"><img src="../IMG/LogoCompleto.png" alt="" width="200px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav justify-content-end w-100 align-items-center">
+
+                    <a class="nav-link active normal" aria-current="page" href="../HTML/home.html">INICIO</a>
+                    <a class="nav-link normal" href="../HTML/servicios.html">SERVICIOS</a>
+                    <a class="nav-link normal" href="../HTML/contacto.html">CONTÁCTO</a>
+                    <a class="nav-link button registro" href="../HTML/inicio_sesion.html">REGISTRARSE</a>
+                    <a class="nav-link button conectar" href="../HTML/inicio_sesion.html">CONECTARSE</a>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
+    </nav>
     <!-- Fin Menu -->
 
     <!-- Vista Admin -->
@@ -48,15 +49,15 @@
         <!-- Tabs -->
         <nav>
             <div class="nav nav-tabs justify-content-center border-0 mb-5 mt-5" id="nav-tab" role="tablist">
-                <button class="nav-link active rounded" id="nav-usuarios-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-usuarios" type="button" role="tab" aria-controls="nav-usuarios"
-                    aria-selected="true">Usuarios</button>
+                <button class="nav-link active rounded" id="nav-users-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-users" type="button" role="tab" aria-controls="nav-users" aria-selected="true"
+                    id="tab-users">Usuarios</button>
                 <button class="nav-link rounded" id="nav-servicios-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-servicios" type="button" role="tab" aria-controls="nav-servicios"
-                    aria-selected="false">Servicios</button>
+                    aria-selected="false" id="tab-servicios" @click="get('servicios')">Servicios</button>
                 <button class="nav-link rounded" id="nav-contactenos-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-contactenos" type="button" role="tab" aria-controls="nav-contactenos"
-                    aria-selected="false">Contáctenos</button>
+                    aria-selected="false" id="tab-contactenos" @click="get('contactenos')">Contáctenos</button>
 
             </div>
         </nav>
@@ -64,15 +65,16 @@
         <!-- Contenido -->
         <div class="tab-content" id="nav-tabContent">
             <!-- Tabla Usuarios -->
-            <div class="tab-pane fade show active col-12 col-lg-8 offset-lg-2" id="nav-usuarios" role="tabpanel"
-                aria-labelledby="nav-usuarios-tab" tabindex="0">
-                <button type="button" class="btn btn-warning fw-bold mb-2" onclick="alterbuttons('Crear','Usuario')">+
+
+
+            <div class="tab-pane fade show active col-12 col-lg-8 offset-lg-2" id="nav-users" role="tabpanel"
+                aria-labelledby="nav-users-tab" tabindex="0">
+                <button type="button" class="btn btn-warning fw-bold mb-2" @click="alterbuttons('Crear','Usuario')">+
                     Nuevo</button>
                 <p class="mb-2">Listado de Usuarios</p>
                 <div class="" style="max-height: 300px; overflow-y: auto;">
+
                     <table class="tabla caption-top table-bordered w-100">
-
-
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -85,39 +87,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mafe</td>
-                                <td>Diaz</td>
-                                <td>3123456789</td>
-                                <td>Mafe@gmail.com</td>
-                                <td>****</td>
-                                <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i class="fa-solid fa-trash"
-                                        onclick="mostrarConfirmacion()"></i></td>
+                            <tr v-for="(item, index) in ViewUsers" :key="item.id">
+                                <th scope="row">${ index + 1 }</th>
+                                <td>${item.nombre}</td>
+                                <td>${item.apellido}</td>
+                                <td>${item.celular}</td>
+                                <td>${item.email}</td>
+                                <td>${item.contraseña}</td>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-pen" @click="getUsers(item.id) "></i>
+                                    <i class="fa-solid fa-trash" @click="deleteRegistro(item.id,'users', $event)"></i>
+                                </td>
+
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mafe</td>
-                                <td>Diaz</td>
-                                <td>3123456789</td>
-                                <td>Mafe@gmail.com</td>
-                                <td>****</td>
-                                <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i class="fa-solid fa-trash"
-                                        onclick="mostrarConfirmacion()"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Mafe</td>
-                                <td>Diaz</td>
-                                <td>3123456789</td>
-                                <td>Mafe@gmail.com</td>
-                                <td>****</td>
-                                <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Usuario')"></i> <i class="fa-solid fa-trash"
-                                        onclick="mostrarConfirmacion()"></i></td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -126,7 +109,7 @@
             <!-- Tabla Servicios -->
             <div class="tab-pane fade col-12 col-lg-8 offset-lg-2" id="nav-servicios" role="tabpanel"
                 aria-labelledby="nav-servicios-tab" tabindex="0">
-                <button type="button" class="btn btn-warning fw-bold" onclick="alterbuttons('Crear','Servicio')">+
+                <button type="button" class="btn btn-warning fw-bold" @click="alterbuttons('Crear','Servicio')">+
                     Nuevo</button>
                 <p class="mb-2">Listado de Servicios</p>
                 <div class="" style="max-height: 300px; overflow-y: auto;">
@@ -137,34 +120,22 @@
                                 <th scope="col"></th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
+                                <th scope="col">Destacado</th>
                                 <th scope="col">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Producto 1</td>
-                                <td>Descripción producto 1</td>
-                                <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Servicio')"></i> <i
-                                        class="fa-solid fa-trash" onclick="mostrarConfirmacion()"></i></td>
+
+                            <tr v-for="(item, index) in Viewservicios" :key="item.id">
+                                <th scope="row">${ index + 1 }</th>
+                                <td>${item.nombre}</td>
+                                <td>${item.descripcion}</td>
+                                <td>${item.destacado}</td>
+                                <td class="text-center"><i class="fa-solid fa-pen" @click="getServicios(item.id)"></i>
+                                    <i class="fa-solid fa-trash" @click="deleteRegistro(item.id,'servicios')"></i>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Producto 2</td>
-                                <td>Descripción producto 2</td>
-                                <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Servicio')"></i> <i
-                                        class="fa-solid fa-trash" onclick="mostrarConfirmacion()"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Producto 3</td>
-                                <td>Descripción producto 3</td>
-                                <td class="text-center"><i class="fa-solid fa-pen"
-                                        onclick="alterbuttons('Actualizar','Servicio')"></i> <i
-                                        class="fa-solid fa-trash" onclick="mostrarConfirmacion()"></i></td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -189,33 +160,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mafe Diaz</td>
-                                <td id="correo">Mafe@gmail.com</td>
-                                <td>3123456789</td>
-                                <td>Me gustaria...</td>
+                            <tr v-for="(item, index) in Viewcontactenos" :key="item.id">
+                                <th scope="row">${ index + 1 }</th>
+                                <td>${item.nombre}</td>
+                                <td>${item.correo}</td>
+                                <td>${item.celular}</td>
+                                <td>${item.mensaje}</td>
                                 <td class="text-center"><i class="fa-solid fa-envelope" onclick="enviarCorreo()"></i>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mafe Diaz</td>
-                                <td>Mafe@gmail.com</td>
-                                <td>3123456789</td>
-                                <td>Me gustaria...</td>
-                                <td class="text-center"><i class="fa-solid fa-envelope" onclick="enviarCorreo()"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Mafe Diaz</td>
-                                <td>Mafe@gmail.com</td>
-                                <td>3123456789</td>
-                                <td>Me gustaria...</td>
-                                <td class="text-center"><i class="fa-solid fa-envelope" onclick="enviarCorreo()"></i>
-                                </td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -224,6 +178,11 @@
         </div>
 
         <!-- Modales Nuevo registro -->
+
+
+
+
+
         <!-- Usuarios -->
         <div class="modal fade" id="nuevoUsuario" tabindex="-1" aria-labelledby="nuevoUsuario" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -236,29 +195,34 @@
                         <form class="form-nuevo">
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInputNombre" placeholder="">
+                                <input type="text" class="form-control" id="floatingInputNombre" placeholder=""
+                                    v-model="users.nombre" required>
                                 <label for="floatingInput">Nombre</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInputApellido" placeholder="">
+                                <input type="text" class="form-control" id="floatingInputApellido" placeholder=""
+                                    v-model="users.apellido" required>
                                 <label for="floatingInput">Apellido</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="floatingInputCelular" placeholder="">
+                                <input type="tel" class="form-control" id="floatingInputCelular" placeholder=""
+                                    v-model="users.celular" required>
                                 <label for="floatingInput">Celular</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInputCorreo" placeholder="">
+                                <input type="email" class="form-control" id="floatingInputCorreo" placeholder=""
+                                    v-model="users.email" required>
                                 <label for="floatingInput">Correo</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingInputContraseña" placeholder="">
+                                <input type="password" class="form-control" id="floatingInputContraseña" placeholder=""
+                                    v-model="users.contraseña" required>
                                 <label for="floatingInput">Contraseña</label>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="botonUsuario" class="btn">Crear</button>
+                        <button type="button" id="botonUsuario" class="btn" @click="post_put()">Crear</button>
                     </div>
                 </div>
             </div>
@@ -275,19 +239,28 @@
                     <div class="modal-body">
                         <form class="form-nuevo">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInputNombreServ" placeholder="">
+                                <input type="text" class="form-control" id="floatingInputNombreServ" placeholder=""
+                                    v-model="servicios.nombre">
                                 <label for="floatingInput">Nombre</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea type="text" class="form-control" id="floatingInputDescripcion" placeholder=""
+                                    v-model="servicios.descripcion"
                                     style="max-height: 250px; height: 150px;"></textarea>
                                 <label for="floatingInput">Descripción</label>
                             </div>
+                            <label for="floatingInput">Destacado</label> <br>
+                            <select name="destacado" id="destacado" v-model="servicios.destacado">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                            
+
 
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" id="botonServicio">Crear</button>
+                        <button type="button" class="btn" id="botonServicio" @click="post_put()">Crear</button>
                     </div>
                 </div>
             </div>
@@ -302,23 +275,24 @@
 
     <!-- Inicio Footer -->
     <div class="footer mb-0">
-        <footer class="d-flex flex-wrap justify-content-center align-items-center p-3 border-top bg-body-tertiary w-100">
-          <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class=" me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-              <img src="../IMG/LogoCompleto.png" alt=""  height="30">
-            </a>
-            <span class=" mb-md-0 text-body-secondary">© 2024</span>
-          </div>
-      
-          <ul class="nav col-md-8 justify-content-end list-unstyled d-flex" style="padding: 0 50px;">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-youtube"></i></a></li>
-          </ul>
+        <footer
+            class="d-flex flex-wrap justify-content-center align-items-center p-3 border-top bg-body-tertiary w-100">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class=" me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <img src="../IMG/LogoCompleto.png" alt="" height="30">
+                </a>
+                <span class=" mb-md-0 text-body-secondary">© 2024</span>
+            </div>
+
+            <ul class="nav col-md-8 justify-content-end list-unstyled d-flex" style="padding: 0 50px;">
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
         </footer>
-      </div>
+    </div>
     <!-- Fin Footer -->
 </body>
 <script src="../JS/admin.js"></script>
