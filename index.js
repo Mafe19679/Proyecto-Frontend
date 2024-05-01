@@ -44,6 +44,14 @@ app.get('/HTML/inicio_sesion.html', (req, res) => {
   res.sendFile(__dirname + '/HTML/inicio_sesion.html');
 });
 
+app.get('/IMG/', (req, res) => {
+  res.sendFile(__dirname + '/IMG/');
+});
+app.get('/CSS/', (req, res) => {
+  res.sendFile(__dirname + '/CSS/');
+});
+
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en el puerto ${PORT}`);
