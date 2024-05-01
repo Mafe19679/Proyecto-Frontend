@@ -12,11 +12,10 @@
     <main>
         <div class="login-form">
             <div class="logo-container">
-                
-                <img src="../IMG/LogoCompleto.png" alt="Logo">
+                <a href="home.html"><img src="../IMG/LogoCompleto.png" alt="Logo"></a>
             </div>
             <h2>CONECTARSE</h2>
-            <form action="#" method="POST">
+            <form id="loginForm">
                 <div class="form-row">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
@@ -29,14 +28,16 @@
                     <input type="checkbox" id="mostrar-contraseña">
                     <label for="mostrar-contraseña">Mostrar Contraseña</label>
                 </div>
-                <a href="#" class="forgot-password">¿Has olvidado tu contraseña?</a><br>
+                <!-- <a href="#" class="forgot-password">¿Has olvidado tu contraseña?</a><br> -->
                 <button type="submit" class="btn-conectar">Conectarse</button>
             </form>
+            <div id="registrationMessage" style="display: none;">¡Registro exitoso!</div>
         </div>
         <div class="fade-image">
             <img src="../IMG/sistema-html-concepto-sitio-web_23-2150376752.png" alt="Descripción de la imagen">
         </div>
     </main>
     
+    <script src="../JS/sign_in.js"></script>
 </body>
 </html>

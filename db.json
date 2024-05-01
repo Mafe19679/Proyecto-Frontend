@@ -7,6 +7,14 @@
       "celular": "3152689980",
       "email": "Mafed@gmail.com",
       "contraseña": "1234567890"
+    },
+    {
+      "id": "612a",
+      "nombre": "User2",
+      "apellido": "Nuevo",
+      "celular": "3211568898",
+      "email": "user@gmail.com",
+      "contraseña": "12345678"
     }
   ],
   "servicios": [
@@ -21,6 +29,12 @@
       "descripcion": "Pendiente.....",
       "destacado": "No",
       "id": "c887"
+    },
+    {
+      "id": "050b",
+      "nombre": "Nuevo servicio",
+      "descripcion": "Disfruta lo que tenemos para ti...",
+      "destacado": "Si"
     }
   ],
   "contactenos": [
