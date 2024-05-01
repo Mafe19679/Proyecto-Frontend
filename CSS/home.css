@@ -12,61 +12,6 @@ header {
     color: #fff;
 }
 
-
-nav {
-    display: flex;
-    justify-content:space-between; 
-    align-items: center;
-    background-color: #fff;
-    padding: 5px 20px;
-    width: 95%; 
-    
-}
-
-nav img {
-    width: 200px; /* Ajusta el tamaño del logo según lo necesites */
-    height: auto; /* Esto permite mantener la proporción de la imagen */
-}
-
-nav a {
-    color: #06ACA3;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-
-
-nav a:last-child {
-    margin-right: 0;
-} 
-
-nav .btn-register {
-    background-color: #0070AE;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-nav .btn-connect {
-    background-color: #AC3C8E;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    margin: 0 2px;
-    flex-shrink: 1;
-    font-size: 14px;
-    
-    
-}
-
-nav a:hover, .btn-register:hover, .btn-connect:hover {
-    text-decoration: underline;
-}
-
-
 main {
     display: flex;
     justify-content: space-between;
@@ -77,7 +22,7 @@ main {
 }
 
 main p {
-    max-width: 50%;
+    max-width: 80%;
     text-align: justify;
 }
 
@@ -122,7 +67,7 @@ main p {
 
 .fade-image img {
     width: 100%;
-    height: auto;
+    height: 100VH;
 }
 
 .fade-image::after {
@@ -136,9 +81,9 @@ main p {
     z-index: 2;
 }
 .box {
-    max-width: 300px;
+    max-width: 500px;
     height: 200px;
-    width: calc(50% - 10px);
+    width: calc(80% - 10px);
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -158,10 +103,10 @@ main p {
 }
 
 .box p {
-    padding: 10px;
     text-align: center;
     margin: 0;
-    font-size: 7px;
+    font-size: 14px;
+    color: white;
 }
 
 .box:nth-child(odd) {

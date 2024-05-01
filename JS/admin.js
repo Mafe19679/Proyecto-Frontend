@@ -125,7 +125,6 @@ createApp({
 
             } else if (metodo == "POST") {
                 let URL = 'http://localhost:3000/' + opcion;
-                // console.log('jddddjjjj')
                 try {
                     const response = await fetch(URL, {
                         method: 'POST',
@@ -207,3 +206,10 @@ function enviarCorreo() {
     var enlaceCorreo = "mailto:" + correo + "?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(cuerpoMensaje);
     window.location.href = enlaceCorreo;
 }
+
+function cerrarSesion(){
+    localStorage.removeItem('sesion');
+    window.location.href = 'home.html';
+}
+
+// history.replaceState(null, '', 'home.html');
