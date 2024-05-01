@@ -110,8 +110,8 @@ app.get('/CSS/home.css', (req, res) => {
 app.get('/CSS/inicio_sesion.css', (req, res) => {
   res.sendFile(__dirname + '/CSS/inicio_sesion.css');
 });
-app.get('/CSS/registro.css', (req, res) => {
-  res.sendFile(__dirname + '/CSS/registro.css');
+app.get('/CSS/registro.CSS', (req, res) => {
+  res.sendFile(__dirname + '/CSS/registro.CSS');
 });
 app.get('/CSS/servicios.css', (req, res) => {
   res.sendFile(__dirname + '/CSS/servicios.css');
