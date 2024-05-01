@@ -1,6 +1,8 @@
+const express = require('express');
+const app = express();
+
 const { exec } = require('child_process');
 
-// Comando para ejecutar json-server
 const command = 'npx json-server db.json';
 
 exec(command, (error, stdout, stderr) => {
@@ -12,10 +14,18 @@ exec(command, (error, stdout, stderr) => {
   console.error(`stderr: ${stderr}`);
 });
 
+app.use(express.static('HTML'));
 
-const express = require('express');
-const app = express();
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/HTML/servicios.html');
+});
+
+app.get('/HTML/servicios.html', (req, res) => {
+  res.sendFile(__dirname + '/HTML/servicios.html');
+});
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
+
